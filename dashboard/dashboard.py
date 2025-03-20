@@ -11,28 +11,12 @@ main_data['dteday'] = pd.to_datetime(main_data['dteday'])
 
 st.title('Dashboard Analysis Bike Sharing')
 
-def make_circle(image_path):
-    img = Image.open(image_path).convert("RGBA")
-    w, h = img.size
-    mask = Image.new("L", (w, h), 0)
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0, w, h), fill=255)
-    img.putalpha(mask)
-
-    border_size = 8
-    bordered_img = Image.new("RGBA", (w + border_size * 2, h + border_size * 2), (255, 255, 255, 0))
-    draw = ImageDraw.Draw(bordered_img)
-    draw.ellipse((0, 0, w + border_size * 2, h + border_size * 2), fill=(255, 255, 255, 255))
-    bordered_img.paste(img, (border_size, border_size), img)
-
-    return bordered_img
-
 with st.sidebar:
-    circle_image = make_circle("D:\Kuliah\Dicoding DBS\ILT ML\submission\dashboard\logosepeda.png")
+    image_url = "https://raw.githubusercontent.com/Ranfl/Analisis-Bike-Sharing/main/dashboard/logosepeda.png"
 
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.image(circle_image, use_container_width=True)
+        st.image(image_url, use_container_width=True)
 
     st.header('Filter Data')
     season = st.selectbox('Select Season', ['All'] + list(main_data['season'].unique()))
