@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw
 
 sns.set(style='dark', palette='viridis')
 
-main_data = pd.read_csv("D:\Kuliah\Dicoding DBS\ILT ML\submission\dashboard\main_data.csv")
+main_data = pd.read_csv("https://raw.githubusercontent.com/Ranfl/Analisis-Bike-Sharing/refs/heads/main/dashboard/main_data.csv")
 main_data['dteday'] = pd.to_datetime(main_data['dteday'])
 
 st.title('Dashboard Analysis Bike Sharing')
